@@ -1,4 +1,4 @@
-﻿package com.TRA.tra24Springboot;
+package com.TRA.tra24Springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -2,9 +2,7 @@ package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.User;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +15,7 @@ public class InventoryController {
     @PostMapping  ("/details")
     public Inventory getInventotyDetailes(){
         Inventory inventory = new Inventory();
-        inventory.setLocation("ASYSAD Warehouse");
+        inventory.setLocation("ASYSAD");
 
         User manager = new User();
         manager.setName("AHMED SAID ");
@@ -25,14 +23,25 @@ public class InventoryController {
         inventory.setPhoneNumber("94086718");
         inventory.setOpeningHours("6 AM ");
         inventory.setClosingHours("11 PM ");
+        inventory.setSupplier("TRA");
+       // inventory.setIsActive(t);
+
 
         List<String> workers = new ArrayList<>();
         workers.add("MOHAMED");
         workers.add("SAID");
         inventory.setWorkers(workers);
 
+
         return inventory;
     }
 
 
-}
+
+    @GetMapping("report")
+    public String reportInventory() {
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+
+    return  stringBuilder.toString();    } }
