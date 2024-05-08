@@ -6,7 +6,6 @@ import com.TRA.tra24Springboot.Models.User;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +20,7 @@ public class InventoryController {
     @PostMapping  ("/details")
 
     public Inventory receiveStock(@RequestBody Inventory inventoryItem){
-        public Inventory globalInventoryItem= new Inventory();
+        Inventory globalInventoryItem= new Inventory();
         inventoryItem.setLocation("ASYSAD");
         User manager = new User();
         manager.setName("AHMED SAID ");
@@ -42,7 +41,7 @@ public class InventoryController {
         return inventoryItem;
     }
 
-    @GetMapping("report")
+    @GetMapping("/report")
     public String reportInventory() {
 
         StringBuilder stringBuilder = new StringBuilder();
