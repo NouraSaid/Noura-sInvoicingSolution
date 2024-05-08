@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/inventory")
 
 public class InventoryController {
+    private Inventory globalInventoryItem;
 
     @PostMapping  ("/details")
 
@@ -38,7 +39,6 @@ public class InventoryController {
         inventoryItem.setWorkers(workers);
 
 
-        globalInventoryItem = inventoryItem;
         return inventoryItem;
     }
 
