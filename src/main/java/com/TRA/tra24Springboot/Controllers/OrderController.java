@@ -47,5 +47,16 @@ public class OrderController {
 
         globalOrder = order;
         return order;
-    } }
+    }
+    //method to update order
+    @PutMapping("update")
+    public Order update (@RequestBody Order userOrder){
+
+        userOrder.setOrderDate(new Date());
+        return userOrder;
+
+}
+
+
+}
 
