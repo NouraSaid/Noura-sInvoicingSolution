@@ -28,7 +28,6 @@ public class ProductController {
         productDetails.setPrice(10d);
         productDetails.setCountryOfOrigin("USA");
         productDetails.setDescription("Apple Product");
-
         product.setProductDetails(productDetails);
         product.setSku(UUID.randomUUID());
         product.setCategory("Electronics");
@@ -71,3 +70,4 @@ public class ProductController {
         return  globalProduct;
     }
 }
+
