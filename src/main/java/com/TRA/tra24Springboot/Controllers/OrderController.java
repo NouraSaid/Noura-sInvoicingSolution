@@ -57,6 +57,19 @@ public class OrderController {
 
 }
 
+    //method to cancel order
+    @PutMapping("cancel/{id}")
+    public String cancel(@PathVariable Integer id, Order userOrder){
+        if (userOrder != null && userOrder.getStatus() == OrderStatus.IN_PROGRESS){
+            userOrder.setStatus(OrderStatus.CANCELED);
+            if (userOrder.getPaymentStatus() == PaymentStatus.PAID){
+                userOrder.setPaymentStatus(PaymentStatus.REFUND);
+            }
+            return "Order " + id + " cancelled successfully";
+        }
+        return "Cancellation failed";
+    }
+
 
 }
 
