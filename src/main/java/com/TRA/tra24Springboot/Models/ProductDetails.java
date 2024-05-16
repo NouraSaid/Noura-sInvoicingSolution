@@ -15,4 +15,5 @@ public class ProductDetails extends BaseEntity{
     String description;
     Double price;
 
+
 }

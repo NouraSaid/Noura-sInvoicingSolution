@@ -1,73 +1,31 @@
 package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.Models.Product;
-import com.TRA.tra24Springboot.Models.ProductDetails;
+import com.TRA.tra24Springboot.Service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 
-    Product globalProduct = new Product();
+    @Autowired
+    private ProductService productService; // Corrected field name
 
-    @PostMapping("add")
-    public Product addProduct(){
+//    @PostMapping("/add")
+//    public Product addProduct(@RequestBody Product product) {
+//        return productService.add(product);
+//    }
+//
+//    @DeleteMapping("/delete/{id}")
+//    public String deleteProduct(@PathVariable Integer id) {
+//        productService.delete(id);
+//        return "Product deleted successfully";
+//    }
 
-        Product product = new Product();
-
-        ProductDetails productDetails = new ProductDetails();
-        productDetails.setId(1);
-        productDetails.setName("Apple");
-        productDetails.setColor("Green");
-        productDetails.setSize("Small");
-        productDetails.setPrice(10d);
-        productDetails.setCountryOfOrigin("USA");
-        productDetails.setDescription("Apple Product");
-        product.setProductDetails(productDetails);
-        product.setSku(UUID.randomUUID());
-        product.setCategory("Electronics");
-        product.setQuantity(1);
-        product.setId(1);
-        product.setIsActive(Boolean.TRUE);
-        product.setCreatedDate(new Date());
-
-        globalProduct = product;
-
-        return product;
-    }
-
-    @PostMapping("delete/{id}")
-    public String deleteProduct(@PathVariable Integer id){
-
-            if(globalProduct.getId().equals(id)){
-                globalProduct.setIsActive(Boolean.FALSE);
-                System.out.println(globalProduct.toString());
-
-        }
-        return "Success!";
-    }
-
-    @PutMapping("update")
-    public Product updateProduct(@RequestBody Product userProduct){
-
-
-        ProductDetails pd = userProduct.getProductDetails();
-        pd.setUpdatedDate(new Date());
-
-        userProduct.setProductDetails(pd);
-        userProduct.setUpdatedDate(new Date());
-
-        globalProduct = userProduct;
-        return globalProduct;
-    }
-    @GetMapping("get")
-    public  Product reportProduct(){
-        return  globalProduct;
+    @PutMapping("/update")
+    public Product updateProduct(@RequestBody Product product) {
+        return productService.update(product); // Corrected method call
     }
 }
-
