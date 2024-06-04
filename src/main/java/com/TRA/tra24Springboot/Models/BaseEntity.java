@@ -13,6 +13,7 @@ import java.util.Date;
 
 @Data
 @MappedSuperclass
+
 public class BaseEntity {
 
     @GeneratedValue(strategy = GenerationType.AUTO)

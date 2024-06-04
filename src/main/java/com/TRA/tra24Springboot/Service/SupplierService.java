@@ -73,34 +73,15 @@ public class SupplierService {
         return supplier;
     }
 
-        public String updateSupplier(Integer id) {
-            Supplier supplier = supplierRepository.getById(id);
-            supplier.setUpdatedDate(new Date());
+    public String updateSupplier(Integer id) {
+        Supplier supplier = supplierRepository.getById(id);
+        supplier.setUpdatedDate(new Date());
 
-            supplierRepository.save(supplier);
-            return "Updated Successfully";
-        }
-//    Optional<Supplier> optionalSupplier = supplierRepository.getById(id);
-//    if (optionalSupplier.isPresent()) {
-//        Supplier existingSupplier = optionalSupplier.get();
-//
-//
-//        existingSupplier.setCompanyName(updatedSupplier.getCompanyName());
-//        existingSupplier.setCountry(updatedSupplier.getCountry());
-//        existingSupplier.setContactDetails(updatedSupplier.getContactDetails());
-//        existingSupplier.setProductsOffered(updatedSupplier.getProductsOffered());
-//        existingSupplier.setNextDeliveryTime(updatedSupplier.getNextDeliveryTime());
-//        existingSupplier.setExpectedProducts(updatedSupplier.getExpectedProducts());
-//        existingSupplier.setComplaints(updatedSupplier.getComplaints());
-//        existingSupplier.setPaymentMethods(updatedSupplier.getPaymentMethods());
-//        existingSupplier.setShippingMethods(updatedSupplier.getShippingMethods());
-//        existingSupplier.setMinimumOrderQuantity(updatedSupplier.getMinimumOrderQuantity());
-//        existingSupplier.setOrders(updatedSupplier.getOrders());
-////
-//
-////        return SupplierRepository.save(existingSupplier);
-////    } else {
-//
-//        return null;
-//    }
+        supplierRepository.save(supplier);
+        return "Updated Successfully";
+    }
+
+    public void deleteSupplier(int id) {
+
+    }
 }

@@ -2,6 +2,7 @@ package com.TRA.tra24Springboot.Models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.Date;
 import java.util.List;

@@ -4,6 +4,7 @@ import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.OrderStatus;
 import com.TRA.tra24Springboot.Models.PaymentStatus;
 import com.TRA.tra24Springboot.Models.PaymentType;
+
 import com.TRA.tra24Springboot.Repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,8 @@ import java.util.Date;
 @Service
 public class OrderService {
 
-    @Autowired
-    private OrderRepository orderRepository;
+   @Autowired
+   OrderRepository orderRepository;
 
     public Order createOrder(Order order) {
         // Add product, set dates and statuses

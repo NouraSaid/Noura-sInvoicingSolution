@@ -16,9 +16,10 @@ public class Inventory extends BaseEntity {
     String location;
     String manager; //TODO: Update once user class created
     List<String> workers; //TODO: Update user class created
-    String supplier; //TODO: Update once supplier class created
     String phoneNumber;
     String openingHours;
     String closingHours;
 
+    @OneToMany
+    List<Supplier> supplier;
 }

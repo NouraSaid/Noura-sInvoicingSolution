@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 public class SupplierController {
 
     @Autowired
-    private SupplierService supplierService; // Autowire SupplierService
+    private SupplierService supplierService;
+
 
     // Endpoint to add a new supplier
     @PostMapping("/add")
@@ -20,10 +21,10 @@ public class SupplierController {
 
 
 
-//    @DeleteMapping("/delete/{id}")
-//    public void deleteSupplier(@PathVariable int id) {
-//        supplierService.deleteSupplier(id);
-//    }
+ @DeleteMapping("/delete/{id}")
+    public void deleteSupplier(@PathVariable int id) {
+        supplierService.deleteSupplier(id);
+    }
 
 
 

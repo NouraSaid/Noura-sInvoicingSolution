@@ -11,21 +11,23 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
 
     @Autowired
-    private ProductService productService; // Corrected field name
+   ProductService productService; // Corrected field name
 
-//    @PostMapping("/add")
-//    public Product addProduct(@RequestBody Product product) {
-//        return productService.add(product);
-//    }
-//
-//    @DeleteMapping("/delete/{id}")
-//    public String deleteProduct(@PathVariable Integer id) {
-//        productService.delete(id);
-//        return "Product deleted successfully";
-//    }
+    @PostMapping("/add")
+   public Product addProduct(@RequestBody Product product) {
+        return productService.add(product);
+    }
 
-    @PutMapping("/update")
+    @DeleteMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable Integer id) {
+        productService.delete(id);
+        return "Product deleted successfully";
+    }
+
+
+@PutMapping("/update")
     public Product updateProduct(@RequestBody Product product) {
         return productService.update(product); // Corrected method call
     }
+
 }
