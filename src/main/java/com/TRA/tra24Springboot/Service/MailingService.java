@@ -43,7 +43,7 @@ public class MailingService {
             mimeMessageHelper.setTo("nourasaid245@gmail.com");
             mimeMessageHelper.setText("Hello Email Body");
             mimeMessageHelper.setSubject("This is the subject");
-            FileSystemResource file = new FileSystemResource(new File("Path to local file"));
+            FileSystemResource file = new FileSystemResource(new File("src/main/resources/noura.pdf.pdf"));
             mimeMessageHelper.addAttachment(file.getFilename(), file);
             mailSender.send(mimeMessage);
             return "Success";
