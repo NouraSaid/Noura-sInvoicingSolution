@@ -1,6 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.Models.Inventory;
+import com.TRA.tra24Springboot.Models.Invoice;
 import com.TRA.tra24Springboot.Service.InventoryService;
 import com.TRA.tra24Springboot.Service.SlackService;
 import org.springframework.beans.factory.annotation.Autowired;
