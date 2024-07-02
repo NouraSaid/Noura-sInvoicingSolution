@@ -22,4 +22,6 @@ public class Inventory extends BaseEntity {
 
     @OneToMany
     List<Supplier> supplier;
+
+
 }

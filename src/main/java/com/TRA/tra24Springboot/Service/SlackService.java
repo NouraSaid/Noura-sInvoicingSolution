@@ -6,6 +6,7 @@ import com.slack.api.methods.request.chat.ChatPostMessageRequest;
 import com.slack.api.methods.response.chat.ChatPostMessageResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class SlackService {
@@ -19,7 +20,7 @@ public class SlackService {
         Slack slack = Slack.getInstance();
         String token = slackToken=""; // Your Slack API token
 
-        channel = "#random";
+        channel = "#noura";
         message = "Hi";
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()
                 .channel(channel)
@@ -37,4 +38,15 @@ public class SlackService {
             System.out.println("Error sending message to Slack: " + e.getMessage());
         }
     }
+
+/*    public void sendMessage(String title, String message) {
+        RestTemplate restTemplate = new RestTemplate();
+        String payload = String.format("{\"text\": \"%s\\n%s\"}", title, message);
+
+        try {
+            restTemplate.postForEntity(slackToken, payload, String.class);
+        } catch (Exception e) {
+            System.out.println("Error sending message to Slack: " + e.getMessage());
+        }
+    }*/
 }

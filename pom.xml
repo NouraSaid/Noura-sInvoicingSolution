@@ -55,6 +55,8 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>6.1.6</version>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.eclipse.angus</groupId>
 			<artifactId>jakarta.mail</artifactId>

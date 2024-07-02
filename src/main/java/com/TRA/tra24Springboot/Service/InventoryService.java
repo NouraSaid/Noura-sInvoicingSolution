@@ -1,11 +1,13 @@
 package com.TRA.tra24Springboot.Service;
 
 import com.TRA.tra24Springboot.Models.Inventory;
+import com.TRA.tra24Springboot.Models.Invoice;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -68,4 +70,5 @@ public class InventoryService {
         }
         return productInfo.toString();
     }
+
 }
