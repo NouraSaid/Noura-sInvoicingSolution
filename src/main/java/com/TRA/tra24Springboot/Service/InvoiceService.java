@@ -30,5 +30,10 @@ public class InvoiceService {
         return invoiceRepository.save(invoice);
     }
 
+    // method to get invoices due in next few days
+    public List<Invoice> getInvoiceDueInNextDays(Integer days){
+        Date today = new Date();
+        Date dueDate = DateHelperUtils.addDays(today, days);
+        return invoiceRepository.getInvoicesByDueDateBetween(today, dueDate);
 
-}
+    }
