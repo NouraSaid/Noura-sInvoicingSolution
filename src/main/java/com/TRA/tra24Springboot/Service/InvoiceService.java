@@ -2,13 +2,12 @@ package com.TRA.tra24Springboot.Service;
 import com.TRA.tra24Springboot.Models.Invoice;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Repository.InvoiceRepository;
+import com.TRA.tra24Springboot.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
+import java.util.*;
 
 @Service
 
@@ -30,4 +29,6 @@ public class InvoiceService {
         invoice.setDueDate(new Date());
         return invoiceRepository.save(invoice);
     }
+
+
 }

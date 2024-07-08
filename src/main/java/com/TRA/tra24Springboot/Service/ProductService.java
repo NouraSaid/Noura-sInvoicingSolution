@@ -8,15 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.Date;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class ProductService {
 
    @Autowired
-   ProductRepository productRepository;
+   static ProductRepository productRepository;
 
 
     @Autowired
@@ -30,6 +28,7 @@ public class ProductService {
         productDetails.setPrice(10d);
         productDetails.setCountryOfOrigin("USA");
         productDetails.setDescription("Apple Product");
+
 
         productDetails = productDetailsRepository.save(productDetails);
 
@@ -75,5 +74,16 @@ public class ProductService {
 
             throw new IllegalArgumentException("Product with ID " + updatedProduct.getId() + " not found.");
         }
+    }
+
+    public static List<Product> getLowStockProducts() {
+        List<Product> products = productRepository.findAll();
+        List<Product> lowStockProducts = new ArrayList<>();
+        for (Product product : products) {
+            if (product.getQuantity() < 50) {
+                lowStockProducts.add(product);
+            }
+        }
+        return lowStockProducts;
     }
 }
