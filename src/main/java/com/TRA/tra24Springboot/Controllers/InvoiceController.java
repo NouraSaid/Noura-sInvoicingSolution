@@ -58,6 +58,27 @@ public class InvoiceController {
             slackService.sendMessage("practice", message.toString());
         }
     }
+    @Scheduled(cron = "0 0 9 * * 0") //runs every Sunday
+    @PostMapping("weeklyReport")
+    public void weeklyInvoiceReport(){
+        Date today = new Date();
+        Date startDate = DateHelperUtils.subtractDays(today, 6); //during the last 7 days
+
+        List<Invoice> createdInvoices = invoiceService.getInvoicesCreatedBetween(startDate, today);
+        List<Invoice> paidInvoices = invoiceService.getPaidInvoicesBetween(startDate, today);
+        List<Invoice> overdueInvoices = invoiceService.getOverDueInvoices();
+
+        StringBuilder report = new StringBuilder();
+        report.append("Weekly Summary Report:\n")
+                .append("Invoices Created:\n");
+        appendInvoicesToReport(report, createdInvoices);
+        report.append("\nInvoices Paid:\n");
+        appendInvoicesToReport(report, paidInvoices);
+        report.append("\nOverdue Invoices:\n");
+        appendInvoicesToReport(report, overdueInvoices);
+
+        slackService.sendMessage("practice", report.toString());
+    }
 }
 
 
