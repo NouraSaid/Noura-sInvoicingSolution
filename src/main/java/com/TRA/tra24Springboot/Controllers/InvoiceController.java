@@ -6,6 +6,7 @@ import com.TRA.tra24Springboot.Service.InvoiceService;
 import com.TRA.tra24Springboot.Service.ProductService;
 import com.TRA.tra24Springboot.Service.SlackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +23,24 @@ public class InvoiceController {
     SlackService slackService;
     @PostMapping("/create")
     public Invoice addInvoice(Invoice invoice) {
-        slackService.sendMessage("noura","new Invoice has been added");
+        slackService.sendMessage("practice","new Invoice has been added");
         return invoiceService.createInvoice(invoice);
     }
-
+    @Scheduled(cron = "0 0 9 * * ?")
+    @PostMapping("dueDate")
+    public void senDueDateReminder() {
+        Integer remainingDays = 3;
+        List<Invoice> invoices = InvoiceService.getInvoiceDueInNextDays(remainingDays);
+        for (Invoice invoice : invoices) {
+            StringBuilder message = new StringBuilder();
+            message.append("Reminder: Invoice #")
+                    .append(invoice.getId())
+                    .append(" is due on ")
+                    .append(invoice.getDueDate().toString());
+            slackService.sendMessage("practice", message.toString());
+        }
+    }
+}
 
 
 }
