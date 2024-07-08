@@ -22,7 +22,7 @@ public class InvoiceController {
     SlackService slackService;
     @PostMapping("/create")
     public Invoice addInvoice(Invoice invoice) {
-        slackService.sendMessage("practice","new Invoice has been added");
+        slackService.sendMessage("noura","new Invoice has been added");
         return invoiceService.createInvoice(invoice);
     }
 
