@@ -28,19 +28,19 @@ public class InvoiceController {
     }
     @Scheduled(cron = "0 0 9 * * ?")
     @PostMapping("dueDate")
-    public void senDueDateReminder() {
+    public void sendDueDateReminder() {
         Integer remainingDays = 3;
-        List<Invoice> invoices = InvoiceService.getInvoiceDueInNextDays(remainingDays);
+        List<Invoice> invoices = invoiceService.getInvoiceDueInNextDays(remainingDays);
         for (Invoice invoice : invoices) {
             StringBuilder message = new StringBuilder();
             message.append("Reminder: Invoice #")
                     .append(invoice.getId())
                     .append(" is due on ")
                     .append(invoice.getDueDate().toString());
-            slackService.sendMessage("practice", message.toString());
+            SlackService.sendMessage("practice", message.toString());
         }
     }
 }
 
 
-}
+
