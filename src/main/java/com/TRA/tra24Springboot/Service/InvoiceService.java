@@ -32,10 +32,25 @@ public class InvoiceService {
     }
 
     // method to get invoices due in next few days
-    public List<Invoice> getInvoiceDueInNextDays(Integer days) {
+    public  List<Invoice> getInvoiceDueInNextDays(Integer days) {
         Date today = new Date();
         Date dueDate = DateHelperUtils.addDays(today, days);
         return invoiceRepository.getInvoicesByDueDateBetween(today, dueDate);
 
+    }
+
+    //method to get overdue invoices
+    public List<Invoice> getOverDueInvoices(){
+        Date today = new Date();
+        return invoiceRepository.getOverdueInvoices(today);
+    }
+
+    //method to
+    public List<Invoice> getInvoicesCreatedBetween(Date startDate, Date endDate) {
+        return invoiceRepository.getInvoicesCreatedBetween(startDate, endDate);
+    }
+
+    public List<Invoice> getPaidInvoicesBetween(Date startDate, Date endDate) {
+        return invoiceRepository.getPaidInvoicesBetween(startDate, endDate);
     }
 }

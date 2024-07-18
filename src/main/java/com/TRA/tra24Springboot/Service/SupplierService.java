@@ -67,7 +67,7 @@ public class SupplierService {
         supplier.setCountry("OMAN");
         supplier.setOrders(Arrays.asList(order));
         supplier.setContactDetails(contactDetails);
-        supplier.setMinimumOrderQuantity("10");
+        supplier.setMinimumOrderQuantity(Integer.valueOf("10"));
         supplier.setCreatedDate(new Date());
         supplier.setIsActive(Boolean.TRUE);
         return supplier;

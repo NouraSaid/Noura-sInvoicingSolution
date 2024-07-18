@@ -15,21 +15,21 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 @DataJpaTest
 @ActiveProfiles("test")
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
+
 class ProductRepositoryTest {
 
     @Autowired
     private ProductRepository productRepository;
-
     @Autowired
     private ProductDetailsRepository productDetailsRepository;
 
     private UUID sku;
-
     @BeforeEach
-    void setupProduct() {
+    void setupProduct(){
         ProductDetails productDetails = ProductDetails.builder()
                 .name("Screen")
                 .color("Black")

@@ -42,7 +42,7 @@ public class InventoryController {
     @GetMapping("/messages")
     public ResponseEntity<Object> sendMessage() {
         try {
-            slackService.sendMessage("", "");
+            slackService.sendMessage("practice", "hi");
             return ResponseEntity.ok("Message sent successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to send message: " + e.getMessage());

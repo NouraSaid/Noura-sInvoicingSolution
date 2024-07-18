@@ -1,21 +1,34 @@
 package com.TRA.tra24Springboot.Models;
 
 import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
+@Builder
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductDetails extends BaseEntity{
 
-    String name;
-    String countryOfOrigin;
-    Date expiryDate;
-    String size;
-    String color;
-    String description;
-    Double price;
 
+        private String name;
+        private String color;
+        private String countryOfOrigin;
+        private Double price;
+        private String size;
 
+    public void setDescription(String appleProduct) {
+    }
+
+    public char[] getDescription() {
+
+        return new char[0];
+    }
 }
+
+

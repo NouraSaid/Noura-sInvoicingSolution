@@ -8,7 +8,10 @@ import java.util.Date;
 import java.util.UUID;
 
 @Data
+@Builder
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product extends BaseEntity {
 
 

@@ -27,7 +27,7 @@ public class InventoryService {
         globalInventoryItem.setCreatedDate(new Date());
         globalInventoryItem.setOpeningHours("6 AM");
         globalInventoryItem.setClosingHours("11 PM");
-        //globalInventoryItem.setSupplier("TRA");
+        globalInventoryItem.setSupplier("TRA");
         globalInventoryItem.setIsActive(Boolean.TRUE);
 
         List<String> workers = new ArrayList<>();

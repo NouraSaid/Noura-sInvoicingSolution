@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class SlackService {
     @Value("${slack.token}")
-    private String slackToken;
+    private static String slackToken;
 
-    public void sendMessage(String channel, String message) {
+    public static void sendMessage(String channel, String message) {
         Slack slack = Slack.getInstance();
 
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()

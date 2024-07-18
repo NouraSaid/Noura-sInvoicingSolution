@@ -4,13 +4,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
 
+
+
 @Data
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Supplier extends BaseEntity{
 
     String companyName;
@@ -27,9 +35,9 @@ public class Supplier extends BaseEntity{
     List<Product> expectedProducts;
 
     String complaints;
-    String paymentMethods; //TODO: Enum for payment methods
+    PaymentType paymentMethods;
     String shippingMethods;
-    String minimumOrderQuantity;
+    Integer minimumOrderQuantity;
 
     @OneToMany
     List<Order> orders;

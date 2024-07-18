@@ -1,7 +1,10 @@
 package com.TRA.tra24Springboot.Models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.Date;
@@ -10,6 +13,9 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "orders")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Order extends BaseEntity {
 
     @OneToMany
